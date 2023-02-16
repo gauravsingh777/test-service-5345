@@ -1,5 +1,6 @@
 package com.miniorange.testservice5345.handler;
 
+import com.miniorange.testservice5345.model.Animals;
 import com.miniorange.testservice5345.model.Fruits;
 import com.miniorange.testservice5345.repository.FruitsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,11 @@ public class FruitsHandler {
 
     public String getFruitColorByName(String name) {
         Fruits fruits = fruitsRepository.findByName(name);
-        checkNotNull(fruits, "No Such Fruit Found");
-        return fruits.getColor();
+       // checkNotNull(fruits, "No Such Fruit Found");
+        if (fruits != null)
+        {
+          return fruits.getColor();
+        }
+        return null;
     }
 }
