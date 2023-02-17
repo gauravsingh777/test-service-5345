@@ -30,7 +30,7 @@ public class AnimalsController {
 
     @GetMapping("/fetchHerbivoreAnimals/{type}")
     public ResponseEntity<ApiResponse> getHerbivoreAnimals(@PathVariable String type) {
-        List<String> herbivoreAnimals = animalsRepository.findByType(type);
+        List<Animals> herbivoreAnimals = animalsRepository.findByType(type);
         if (herbivoreAnimals.isEmpty()){
             apiResponse = new ApiResponse(HttpStatus.BAD_REQUEST.value(), "No Such Animals Found");
             return ResponseEntity.status(apiResponse.getStatusCode()).body(apiResponse);

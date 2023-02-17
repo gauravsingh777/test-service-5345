@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface AnimalsRepository extends JpaRepository<Animals, Long> {
-    List<String> findByType(String type);
+    List<Animals> findByType(String type);
 }
