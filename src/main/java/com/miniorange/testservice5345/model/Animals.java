@@ -4,8 +4,11 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Getter @Setter
@@ -25,5 +28,10 @@ public class Animals {
 
     @Column(name = "type")
     private String type;
+
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "createdDt", nullable = false, updatable = false)
+    private Date createdDt;
 
 }

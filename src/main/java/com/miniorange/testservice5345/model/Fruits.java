@@ -4,8 +4,11 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Getter @Setter
@@ -24,4 +27,9 @@ public class Fruits {
 
     @Column(name = "season")
     private String season;
+
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "createdDt", nullable = false, updatable = false)
+    private Date createdDt;
 }
